@@ -8,4 +8,4 @@ const{
 const userRouter = express.Router();
 userRouter.get('/',httpGetUserInfo);
 userRouter.post('/edit',httpEditUserInfo);
-module.exports = userRouter
+module.exports = userRouter;

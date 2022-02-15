@@ -4,14 +4,19 @@ const {
 } = require('../models/userCredential.model');
 
 function authUserInfo(userEmail,userPassword){
-    const userInfo =  dataBaseAuthUserInfo(userEmail,userPassword);
-    return userInfo;
+   try{ 
+        const res =  dataBaseAuthUserInfo(userEmail,userPassword);
+        return res;
+   }
+   catch(err){
+       throw err;
+   }
 }
 
 function createNewUser(userEmail,userPassword){
     try{
-        const userInfo = dataBaseCreateNewUser(userEmail,userPassword);
-        return userInfo;
+        const userCreated = dataBaseCreateNewUser(userEmail,userPassword);
+        return userCreated;
     }
     catch(err){
         throw err;
