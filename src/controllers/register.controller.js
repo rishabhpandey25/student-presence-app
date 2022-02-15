@@ -2,13 +2,14 @@ const {
     createNewUser
 } =  require('./auth.controller')
 const {
-    dataBaseCreateNewUserData
+    databaseCreateNewUserData
 } = require('../models/userData.model');
 
-function httpRegisterUser(req,res){
+async function  httpRegisterUser(req,res){
     try{
         const reqData = req.body;
-        const userCreated = createNewUser(reqData.email,reqData.password);
+        console.log(reqData);
+        const userCreated = await createNewUser(reqData.email,reqData.password);
         if(userCreated){
             const user = {
                 name : reqData.name,
@@ -16,8 +17,7 @@ function httpRegisterUser(req,res){
                 section : reqData.section,
                 email : reqData.email
             };
-
-           const userData =  dataBaseCreateNewUserData(user);
+           const userData = await databaseCreateNewUserData(user);
            return res.status(201).json(userData);
 
         }

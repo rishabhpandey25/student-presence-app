@@ -2,10 +2,10 @@ const {
     authUserInfo
 } = require('./auth.controller');
 
-function httpLoginUser(req,res){
+async function httpLoginUser(req,res){
     const loginData = req.body;
     try{
-        const user = authUserInfo(loginData.email,loginData.password);
+        const user = await authUserInfo(loginData.email,loginData.password);
         if(user.exist){
            return res.status(200).json(user.info);
         }

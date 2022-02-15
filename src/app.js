@@ -16,5 +16,5 @@ app.use(express.json());
 app.use('/user',userRouter);
 app.use('/attendence',attendenceRouter);
 app.use('/register',registerRouter);
-app.use('/loginRouter',loginRouter);
+app.use('/login',loginRouter);
 module.exports = app;

@@ -6,6 +6,6 @@ const {
 
 const loginRouter = express.Router();
 
-loginRouter.post('/',httpLoginUser);
+loginRouter.get('/',httpLoginUser);
 
 module.exports = loginRouter;

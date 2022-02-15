@@ -1,21 +1,22 @@
 const {
-    dataBaseAuthUserInfo,
-    dataBaseCreateNewUser
+    databaseAuthUserInfo,
+    databaseCreateNewUser
 } = require('../models/userCredential.model');
 
-function authUserInfo(userEmail,userPassword){
+async function authUserInfo(userEmail,userPassword){
    try{ 
-        const res =  dataBaseAuthUserInfo(userEmail,userPassword);
+        const res =  await databaseAuthUserInfo(userEmail,userPassword);
         return res;
+        
    }
    catch(err){
        throw err;
    }
 }
 
-function createNewUser(userEmail,userPassword){
+async function createNewUser(userEmail,userPassword){
     try{
-        const userCreated = dataBaseCreateNewUser(userEmail,userPassword);
+        const userCreated = await databaseCreateNewUser(userEmail,userPassword);
         return userCreated;
     }
     catch(err){
