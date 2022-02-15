@@ -8,10 +8,17 @@ const url = "mongodb+srv://attendence-app:iUcHWkCWxEBs3dhP@cluster0.ntyzi.mongod
 const server = http.createServer(app);
 
 async function startServer(){
-    console.log(await dataBaseConnect(url));
-    server.listen(PORT,()=>{
-        console.log(`Listening on port ${PORT}.....`);
-    })
+    try{
+        console.log(await dataBaseConnect(url));
+        server.listen(PORT,()=>{
+            console.log(`Listening on port ${PORT}.....`);
+        })
+    }
+    catch(err){
+        console.log(err);
+        throw err;
+    }
+    
     
 }
 

@@ -1,27 +1,55 @@
  const { getUserDataCollection} =  require('./index.model');
 
  async function databaseCreateNewUserData(userData){
-    const collection = getUserDataCollection();
-    const data = await collection.insertOne(userData);
-    return data;
+    try{
+      const collection = getUserDataCollection();
+      const data = await collection.insertOne(userData);
+      return data;
+    }
+    catch(err){
+      console.log(err)
+      throw err;
+    }
+    
  }
-
+ 
  async function databaseEditUserData(updatedUserData){
-    const collection = getUserDataCollection();
-    const userData = await collection.replaceOne({email: updatedUserData.email},updatedUserData);
-    return userData;
+    try{
+      const collection = getUserDataCollection();
+      const userData = await collection.replaceOne({email: updatedUserData.email},updatedUserData);
+      return userData;
+    }
+    catch(err){
+      console.log(err)
+      throw err;
+    }
+    
  }
  
  async function databaseGetUserData(userEmail){
-    const collection = getUserDataCollection();
-    const userData = await collection.findOne({email: userEmail});
-    return userData;
+   try{
+      const collection = getUserDataCollection();
+      const userData = await collection.findOne({email: userEmail});
+       return userData;
+   }
+   catch(err){
+      console.log(err)
+      throw err;
+   }
+    
  }
 
  async function databaseGetAttendence(branch,section){
-    const collection = getUserDataCollection();
-    const userData = await collection.countDocuments({branch: branch,section: section});
-    return userData;
+   try{
+      const collection = getUserDataCollection();
+      const userData = await collection.countDocuments({branch: branch,section: section});
+      return userData;
+   }
+   catch(err){
+      console.log(err)
+      throw err;
+   }
+    
  }
  module.exports = {
      databaseCreateNewUserData,

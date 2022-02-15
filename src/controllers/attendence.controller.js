@@ -9,7 +9,7 @@ async function httpGetAttendence(req,res){
         const attednenceData = await databaseGetAttendence(branch,section);
         return res.status(200).json(attednenceData);
     }
-    catch{
+    catch(err){
         console.log(err);
         return res.status(500);
     }
