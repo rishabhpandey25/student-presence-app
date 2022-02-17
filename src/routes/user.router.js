@@ -7,5 +7,5 @@ const{
 
 const userRouter = express.Router();
 userRouter.get('/',httpGetUserInfo);
-userRouter.post('/edit',httpEditUserInfo);
+userRouter.patch('/edit',httpEditUserInfo);
 module.exports = userRouter;

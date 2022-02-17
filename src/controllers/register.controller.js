@@ -8,7 +8,6 @@ const {
 async function  httpRegisterUser(req,res){
     try{
         const reqData = req.body;
-        console.log(reqData);
         const userCreated = await createNewUser(reqData.email,reqData.password);
         if(userCreated){
             const user = {

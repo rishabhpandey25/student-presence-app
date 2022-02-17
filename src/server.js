@@ -3,7 +3,11 @@ const app = require('./app');
 const {dataBaseConnect} = require('./models/index.model');
 
 const PORT = process.env.PORT || 8000;
-const url = "mongodb+srv://attendence-app:iUcHWkCWxEBs3dhP@cluster0.ntyzi.mongodb.net/attendence-app?retryWrites=true&w=majority";
+const DB_USERNAME = process.env.DB_USERNAME;
+const DB_NAME =  process.env.DB_NAME;
+const DB_PASSWORD = process.env.DB_PASSWORD;
+
+const url = `mongodb+srv://${DB_USERNAME}:${DB_PASSWORD}@cluster0.ntyzi.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`;
 
 const server = http.createServer(app);
 

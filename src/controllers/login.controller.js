@@ -6,13 +6,11 @@ async function httpLoginUser(req,res){
     const loginData = req.body;
     try{
         const user = await authUserInfo(loginData.email,loginData.password);
-        if(user.exist){
+        if(user.info){
            return res.status(200).json(user.info);
         }
         else{
-           return res.status(400).json({
-                error : "worng credentials"
-            });
+           return res.status(400).json(user.error);
         }
     }
     catch(err){

@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "nodemon src/server.js"
+    "watch": "DB_USERNAME=attendence-app DB_NAME=attendence-app DB_PASSWORD=iUcHWkCWxEBs3dhP nodemon src/server.js",
+    "start": "DB_USERNAME=attendence-app DB_NAME=attendence-app DB_PASSWORD=iUcHWkCWxEBs3dhP node src/server.js"
   },
   "author": "",
   "license": "ISC",
