@@ -29,7 +29,7 @@
  async function databaseGetUserData(userEmail){
    try{
       const collection = getUserDataCollection();
-      const userData = await collection.findOne({email: userEmail});
+      const userData = await collection.findOne({email: userEmail,attendence: true});
        return userData;
    }
    catch(err){

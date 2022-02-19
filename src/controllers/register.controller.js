@@ -14,7 +14,8 @@ async function  httpRegisterUser(req,res){
                 name : reqData.name,
                 branch : reqData.branch,
                 section : reqData.section,
-                email : reqData.email
+                email : reqData.email,
+                attendence: reqData.attendence
             };
            const userData = await databaseCreateNewUserData(user);
            return res.status(201).json(userData);
