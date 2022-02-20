@@ -29,7 +29,7 @@
  async function databaseGetUserData(userEmail){
    try{
       const collection = getUserDataCollection();
-      const userData = await collection.findOne({email: userEmail,attendence: true});
+      const userData = await collection.findOne({email: userEmail});
        return userData;
    }
    catch(err){
@@ -39,10 +39,10 @@
     
  }
 
- async function databaseGetAttendence(branch,section){
+ async function databaseGetAttendence(section){
    try{
       const collection = getUserDataCollection();
-      const userData = await collection.countDocuments({branch: branch,section: section});
+      const userData = await collection.countDocuments({ section:{$in:section},attendence:true});
       return userData;
    }
    catch(err){
